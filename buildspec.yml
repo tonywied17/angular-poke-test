@@ -17,4 +17,4 @@ artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: dist/app-name-ng
+  base-directory: dist/app-name
