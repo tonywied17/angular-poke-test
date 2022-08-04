@@ -1,0 +1,41 @@
+<a *ngIf="loggedIn">Welcome Logged In User</a>
+
+
+<div *ngIf="loggedIn">
+    <p *ngFor="let name of names">hello, {{name}}</p>
+</div>
+<p>
+    <button mat-raised-button color="primary" (click)="switchBoolean()">
+        <span *ngIf="loggedIn">Logout</span>
+        <span *ngIf="!loggedIn">Login</span>
+    </button>
+</p>
+<p></p>
+
+
+<p>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{pokemon.name}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{pokemon.types[0].type.name}} type, {{pokemon.weight}} kg
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name + 'sprite'">
+        <img [src]="pokemon.sprites.front_shiny" [alt]="pokemon.name + 'sprite'">
+    </mat-expansion-panel>
+</p>
+
+
+
+<p>
+    <mat-form-field appearance="fill">
+        <mat-label>Pokemon Id</mat-label>
+        <input (change)="getPokemon()" matInput type="number" placeholder="Ex. 12" [(ngModel)]="pokemonId">
+    </mat-form-field>
+
+</p>
+<!--<button mat-raised-button color="primary" type="button" (click)="getPokemon()">Get Pokemon</button>-->
